@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from app.config import settings
 from app.database import Base, engine
 from app.api.papers import router as paper_router
+from app.api.upload import router as upload_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -13,6 +14,7 @@ app = FastAPI(
 )
 
 app.include_router(paper_router)
+app.include_router(upload_router)
 
 @app.get("/")
 def root():
