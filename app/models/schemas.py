@@ -20,10 +20,10 @@ class Paper(BaseModel):
     arxiv_id: str = Field(..., description="The arXiv ID of the paper.")
     title: str = Field(..., description="The title of the paper.")
     abstract: str = Field(..., description="The abstract of the paper.")
-    authors: List[str] = Field(..., description="The list of authors of the paper.")
+    authors: List[str] = Field(..., description="The List of authors of the paper.")
     published: datetime = Field(..., description="The publication date of the paper.")
     updated: datetime = Field(..., description="The last updated date of the paper.")
-    categories: List[str] = Field(..., description="The list of categories of the paper.")
+    categories: List[str] = Field(..., description="The List of categories of the paper.")
     pdf_url: str = Field(..., description="The URL to the PDF of the paper.")
 
 
@@ -65,4 +65,4 @@ class IngestResponse(BaseModel):
 
     """
 
-    ingested: List[IngestPaper] = Field(..., description="The list of ingested papers and their metadata.")
+    ingested: List[IngestPaper] = Field(..., description="The List of ingested papers and their metadata.")

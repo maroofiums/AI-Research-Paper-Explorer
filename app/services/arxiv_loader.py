@@ -14,6 +14,7 @@ version, only this one file needs to change, not every caller downstream.
 """
 
 import re
+from typing import List
 
 from langchain_community.document_loaders import ArxivAPIWrapper
 
@@ -71,7 +72,7 @@ def fetch_by_id(arxiv_id: str) -> Paper:
     return _document_to_paper(docs[0])
 
 
-def search(query: str, max_results: int = 1) -> list[Paper]:
+def search(query: str, max_results: int = 1) -> List[Paper]:
     """Search arXiv and return the top matching papers.
  
     Builds a fresh ArxivAPIWrapper per call rather than mutating the shared

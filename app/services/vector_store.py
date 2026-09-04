@@ -8,6 +8,7 @@ lifecycle (create/load/persist), so search logic can stay simple.
 
 from functools import lru_cache
 from pathlib import Path
+from typing import List
 
 import faiss
 from langchain_community.docstore.in_memory import InMemoryDocstore
@@ -68,7 +69,7 @@ def add_paper(paper: Paper) -> None:
     store.save_local(str(settings.paper_index_dir))
 
 
-def add_chunks(chunks: list[Chunk]) -> None:
+def add_chunks(chunks: List[Chunk]) -> None:
     """Embed a paper's chunks and add them to the chunk-level index."""
 
     if not chunks:

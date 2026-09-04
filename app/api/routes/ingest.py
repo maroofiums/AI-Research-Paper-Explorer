@@ -1,5 +1,6 @@
 import asyncio
 import json
+from typing import List
 
 from fastapi import APIRouter, HTTPException
 
@@ -13,7 +14,7 @@ router = APIRouter(
     tags=["ingest"]
 )
 
-def _save_paper(paper: Paper, chunks: list) -> None:
+def _save_paper(paper: Paper, chunks: List) -> None:
 
     out_path = settings.data_dir / "papers" / f"{paper.arxiv_id}.json"
     payload = {

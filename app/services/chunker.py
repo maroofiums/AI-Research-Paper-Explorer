@@ -5,14 +5,16 @@ Chunk schema -- same adapter pattern as arxiv_loader.py, so LangChain's
 internal text-splitting representation stays contained to this module.
 """
 
+from typing import List
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from app.models.schemas import Chunk
 
 
-def chunk_text(text: str, paper_id: str, chunk_size: int, overlap: int) -> list[Chunk]:
+def chunk_text(text: str, paper_id: str, chunk_size: int, overlap: int) -> List[Chunk]:
     """
-    Split `text` into a list of Chunk objects, each up to `chunk_size`
+    Split `text` into a List of Chunk objects, each up to `chunk_size`
     characters long, with `overlap` characters repeated between
     consecutive chunks.
     """
