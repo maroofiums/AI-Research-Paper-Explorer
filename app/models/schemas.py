@@ -65,4 +65,4 @@ class IngestResponse(BaseModel):
 
     """
 
-    papers: List[IngestPaper] = Field(..., description="The list of ingested papers and their metadata.")
+    ingested: List[IngestPaper] = Field(..., description="The list of ingested papers and their metadata.")
