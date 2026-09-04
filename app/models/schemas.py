@@ -68,4 +68,23 @@ class IngestResponse(BaseModel):
     ingested: List[IngestPaper] = Field(..., description="The List of ingested papers and their metadata.")
 
 
-    
+class PaperSearchResult(BaseModel):
+    """One paper-search hit. score is L2 distance -- lower means more similar."""
+
+    paper: Paper
+    score: float
+
+
+class PaperSearchResponse(BaseModel):
+    results: list[PaperSearchResult]
+
+
+class ChunkSearchResult(BaseModel):
+    """One chunk-search hit. score is L2 distance -- lower means more similar."""
+
+    chunk: Chunk
+    score: float
+
+
+class ChunkSearchResponse(BaseModel):
+    results: list[ChunkSearchResult]
