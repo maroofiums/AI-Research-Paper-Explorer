@@ -6,7 +6,7 @@ Run with: uvicorn app.main:app --reload
 
 from fastapi import FastAPI
 
-from app.api.routes import qa, search
+from app.api.routes import qa, search, ingest
 
 app = FastAPI(
     title="AI Research Paper Explorer",
@@ -16,6 +16,7 @@ app = FastAPI(
 
 app.include_router(search.router)
 app.include_router(qa.router)
+app.include_router(ingest.router)
 
 
 @app.get("/health", tags=["health"])

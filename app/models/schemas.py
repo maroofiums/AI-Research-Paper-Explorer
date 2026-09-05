@@ -50,7 +50,7 @@ class IngestRequest(BaseModel):
     max_results: int = Field(default=1, ge=1, le=10, description="The maximum number of papers to ingest for a query.")
 
 
-class IngestPaper(BaseModel):
+class IngestedPaper(BaseModel):
     """
     Response schema for the ingest API when ingesting a single paper.
 
@@ -65,7 +65,7 @@ class IngestResponse(BaseModel):
 
     """
 
-    ingested: List[IngestPaper] = Field(..., description="The List of ingested papers and their metadata.")
+    ingested: List[IngestedPaper] = Field(..., description="The List of ingested papers and their metadata.")
 
 
 class PaperSearchResult(BaseModel):

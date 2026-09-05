@@ -16,7 +16,7 @@ version, only this one file needs to change, not every caller downstream.
 import re
 from typing import List
 
-from langchain_community.document_loaders import ArxivAPIWrapper
+from langchain_community.utilities import ArxivAPIWrapper
 
 from app.models.schemas import Paper
 
