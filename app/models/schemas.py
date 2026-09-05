@@ -88,3 +88,24 @@ class ChunkSearchResult(BaseModel):
 
 class ChunkSearchResponse(BaseModel):
     results: list[ChunkSearchResult]
+
+
+class QARequest(BaseModel):
+    """
+    Request schema for the RAG question-answering API.
+
+    """
+
+    question: str = Field(..., description="The question to answer.")
+    paper_id: str | None = Field(default=None, description="The arXiv ID of the paper to scope retrieval to. If None, retrieval spans all ingested papers.")
+    k: int = Field(default=5, ge=1, le=20, description="The number of chunks to retrieve for answering the question.")
+
+class QAResponse(BaseModel):
+    """
+    Response schema for the RAG question-answering API.
+
+    """
+
+    answer: str = Field(..., description="The answer to the question, grounded in the retrieved chunks.")
+    sources: List[ChunkSearchResult] = Field(..., description="The List of retrieved chunks that were used to generate the answer. Each chunk includes its metadata and similarity score.")
+
